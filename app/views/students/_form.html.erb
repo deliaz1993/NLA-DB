@@ -1,0 +1,373 @@
+<%= form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
+<h3> Applicant Information </h3>
+
+  <div class="control-group">
+    <%= f.label :first_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :first_name, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :middle_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :middle_name, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :last_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :last_name, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :gender, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :gender, [['None Selected', nil],['Male','male'],['Female','female']] %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "School", :class => 'control-label' %>
+      <div class="controls">
+      <%= f.collection_select(:school_id,  School.all, :id, :name)%>
+      <%= link_to "Add New School", new_school_path, :target => "_blank" %>
+      </div>
+  </div>
+  
+  <div class="control-group">
+  </div>
+
+  <div class="control-group">
+    <%= f.label :counselor_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :counselor_name, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Date Of Birth", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.date_select :DOB, :start_year => Time.now.year - 30, :end_year => Time.now.year - 5%>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Grade", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :grade, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Street Address", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :street_address, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "City", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :city, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "State", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :state, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Zip Code", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :zip_code, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Phone", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :phone, :class => 'text_field' %>
+      </div>
+  </div>
+<h3> Parent/Guardian Information </h3>
+
+  <div class="control-group">
+    <%= f.label "First Name", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :parent_first_name, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Last Name", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :parent_last_name, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Relationship", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :parent_relationship, [['Not Selected', nil],['Mother','mother'],['Father','father'],['Other', 'other']] %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Parent Home Phone", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :parent_home_phone, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Parent Cell Phone", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :parent_cell_phone, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Parent Work Phone", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :parent_work_phone, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Street Address", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :parent_street_address, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "City", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :parent_city, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "State", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :state, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Zip Code", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :parent_zip_code, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Email", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :parent_email, :class => 'text_field' %>
+      </div>
+  </div>
+
+<h3> Household Information </h3>
+
+  <div class="control-group">
+    <%= f.label "Number of members living in household", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :household_number_of_members, :class => 'text_field' %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Child In Foster Care?", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :in_foster_care, [['Not Selected', nil],['Yes',1],['No',0]] %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "School Lunch Program", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :school_lunch_program, [['Not Selected', nil],['Free Lunch','free'],['Reduced Lunch','reduced'], ['Does Not Qualify', 'does not qualify']] %>
+      </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Race", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select(:race, [['Not Selected', nil],
+                     ['African American', 'african american'],
+                     ['Asian/Pacific Islander', 'asian'],
+                     ['Caucasian', 'caucasian'],
+                     ['Hispanic', 'hispanic'],
+                     ['Native American', 'native american'],
+                     ['Other', 'other']] ) %>
+      </div>
+  </div>
+
+<h3> Support Services </h3>
+<h6> Please check all that apply </h6>
+
+  <div class="control-group">
+    <%= f.label "Autistic Support", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :autistic_support %>
+     </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Life Skills Support", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :life_skills_support %>
+     </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Learning Support", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :learning_support %>
+     </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Emotional Support", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :emotional_support %>
+     </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Multiple Disability Support", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :multiple_disability_support %>
+     </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Hearing Support", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :hearing_support %>
+     </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Visual Support", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :visual_support %>
+     </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Speech and Language Support Classroom", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :speech_and_language_support %>
+     </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Other Support", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :other_support, :class => 'text_field' %>
+     </div>
+  </div>
+
+<h3> Medical Emergency Information </h3>
+
+<div> Please list all dietary needs, including food allergies </div>
+
+<%= f.text_area :dietary_needs,:rows => '4', :class => 'span6' %>
+
+<div> Please list fact of which a physician should be alerted, including allergies, medications being taken, and physical impairments </div>
+<%= f.text_area :allergies_medications_impairments,:rows => '4', :class => 'span6' %>
+
+<h5> Physician or Clinic Information </h5>
+  <div class="control-group">
+    <%= f.label "Name", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :physician_clinic_name, :class => 'text_field' %>
+     </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Street Address", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :clinic_street_address, :class => 'text_field' %>
+     </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Phone Number", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :clinic_phone_number, :class => 'text_field' %>
+     </div>
+  </div>
+
+<h5> Emergency Contacts </h5>
+Emergency Contacts will be contacted if a parent/guardian cannot be contacted.
+  <div class="control-group">
+    <%= f.label "Contact 1 Name", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :emergency_contact_1_name, :class => 'text_field' %>
+     </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Contact 1 Phone", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :emergency_contact_1_phone, :class => 'text_field' %>
+     </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Contact 2 Name", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :emergency_contact_2_name, :class => 'text_field' %>
+     </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Contact 2 Phone", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :emergency_contact_2_phone, :class => 'text_field' %>
+     </div>
+  </div>
+
+<h5> Check if you agree: </h5>
+<%= f.check_box :permission_to_transport_child %>
+<div> In the event that reasonable attempts to contact me have been unsuccessful, I give my consent for the administration of any treatment deemed necessary by the above named medical care providers, or, in the event that the designated preferred practitioner is not available, by another licensed physician or dentist. This authorization does not cover major surgery unless the medical opinions of two other licensed physicians or dentists, concurring in the necessity for such surgery, are obtained prior to the performance of each surgery.</div>
+
+<h3> Release/Field Trip Permission/Suspension/Expulsion Form </h3>
+
+  <div class="control-group">
+    <%= f.label "Form Signed?", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :release_field_trip_form_signed %>
+     </div>
+  </div>
+<h3> Release and Authorization Form </h3>
+
+  <div class="control-group">
+    <%= f.label "Form Signed?", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :release_and_authorization_form_signed %>
+     </div>
+  </div>
+
+<h3> Comments </h3>
+Put any other important information here.
+<div> <%= f.text_area :comments,:rows => '4', :class => 'span6' %> </div>
+
+<h3> Phone Call History </h3>
+Record the date and a summary of any communication with the student's parents. Includes calls involving attendance. 
+<div> <%= f.text_area :phone_history ,:rows => '4', :class => 'span6' %> </div>
+
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                students_path, :class => 'btn' %>
+
+
+
+
+<% end %>

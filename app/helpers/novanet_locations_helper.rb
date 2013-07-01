@@ -1,0 +1,2 @@
+module NovanetLocationsHelper
+end

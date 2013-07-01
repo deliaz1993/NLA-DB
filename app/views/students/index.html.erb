@@ -1,0 +1,41 @@
+
+<%- model_class = Student -%>
+<div class="page-header">
+  <h1>Listing Students</h1>
+<%= link_to "Register New Student",
+            {:controller => "students", :action => "new"},
+            :class => 'btn' %>
+</div>
+Click on a student's last name to view additional information or edit the data
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>School</th>
+      <th>Grade</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td> <%= link_to student.last_name,
+                      edit_student_path(student)%></td>
+        <td><%= student.first_name %></td>
+        <td><%= student.school.name %></td>
+        <td><%= student.grade %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_student_path(student), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      student_path(student),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,54 @@
+<%- model_class = Student -%>
+
+<h3> Student Detail View </h3>
+<table>
+  <tr>
+    <td align="right"><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></td>
+    <td><%= @student.first_name %></td>
+  </tr>
+  
+
+<tr><td align="right"><strong><%= model_class.human_attribute_name(:middle_name) %>:</strong></td>
+  <td><%= @student.middle_name %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></td>
+  <td><%= @student.last_name %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:grade) %>:</strong></td>
+  <td><%= @student.grade %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:phone) %>:</strong></td>
+  <td><%= @student.phone %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:gender) %>:</strong></td>
+  <td><%= @student.gender %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:DOB) %>:</strong></td>
+  <td><%= @student.DOB %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:phone) %>:</strong></td>
+  <td><%= @student.phone %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:email) %>:</strong></td>
+  <td><%= @student.email %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:street_address) %>:</strong></td>
+  <td><%= @student.street_address %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:city) %>:</strong></td>
+  <td><%= @student.city %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:state) %>:</strong></td>
+  <td><%= @student.state %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:zip_code) %>:</strong></td>
+  <td><%= @student.zip_code %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:parent_relationship) %>:</strong></td>
+  <td><%= @student.parent_relationship %></td></tr>  
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:parent_email) %>:</strong></td>
+  <td><%= @student.parent_email %></td></tr>
+  <tr><td align="right"><strong><%= model_class.human_attribute_name(:comments) %>:</strong></td>
+  <td><%= @student.comments %></td></tr>
+
+</table>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              students_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_student_path(@student), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              student_path(@student),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
